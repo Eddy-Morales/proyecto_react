@@ -1,5 +1,6 @@
 import React from 'react';
 import '../componentes/Servicios.css';
+import { Link } from 'react-router-dom';
 
 const Contenido = () => {
     return (
@@ -8,7 +9,7 @@ const Contenido = () => {
             <section id="hero">
                 <div className="hero-text">
                     <h2>¿Le estás dando a tu mascota lo que realmente necesita? <br /> Por eso te ofrecemos:</h2>
-                    <a href="#services" className="boton">Ver Productos</a>
+                    <Link to="/productos" className="boton">Ver Productos</Link>
                 </div>
             </section>
 

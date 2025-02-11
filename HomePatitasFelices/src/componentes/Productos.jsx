@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { db } from "../servicios/firebase"; // Asegúrate de importar correctamente la configuración de Firebase
+import { db } from "../servicios/firebase"; 
 import { collection, addDoc, getDocs } from "firebase/firestore";
+import Encabezado from "../componentes/Encabezado"; // Importar Encabezado
+import PieDePagina from "../componentes/PieDePagina"; // Importar PieDePagina
+import '../componentes/Productos.css';
 
 const Productos = () => {
   const [productos, setProductos] = useState([]);
   const [nombre, setNombre] = useState("");
   const [cantidad, setCantidad] = useState("");
-  const [imagen, setImagen] = useState("");
 
   // Función para obtener productos desde Firebase
   const fetchProductos = async () => {
@@ -24,7 +26,7 @@ const Productos = () => {
 
   // Función para agregar un nuevo producto
   const addProducto = async () => {
-    if (nombre.trim() === "" || cantidad.trim() === "" || imagen.trim() === "") {
+    if (nombre.trim() === "" || cantidad.trim() === "") {
       alert("Por favor, completa todos los campos.");
       return;
     }
@@ -33,12 +35,10 @@ const Productos = () => {
       await addDoc(collection(db, "proyecto"), {
         nombre,
         cantidad: parseInt(cantidad),
-        imagen,
       });
       alert("Producto agregado correctamente.");
       setNombre("");
       setCantidad("");
-      setImagen("");
       fetchProductos(); // Actualizar la lista de productos
     } catch (error) {
       console.error("Error al agregar producto:", error);
@@ -52,22 +52,30 @@ const Productos = () => {
 
   return (
     <div>
+      
+      
       <h2>Productos para Mascotas</h2>
-      <ul>
-        {productos.map((producto) => (
-          <li key={producto.id}>
-            <img
-              src={`/imagenes/${producto.imagen}`}
-              alt={producto.nombre}
-              style={{ width: "100px", height: "100px" }}
-            />
-            <p>🛍️ {producto.nombre}</p>
-            <p>📦 Cantidad: {producto.cantidad}</p>
-          </li>
-        ))}
-      </ul>
 
-      {/* Formulario para agregar producto */}
+      {/* Sección con tres cajas de información */}
+      <div className="cajas-info">
+        <div className="caja">
+          <img src="imagenes/correa.jpg" alt="Caja 1" className="imagen-caja" />
+          <h3>Correas</h3>
+          <p>La correa perfecta para tus paseos diarios. Con diseño ergonómico y resistente, garantiza comodidad y seguridad para tu perro en cada caminata. ¡Haz que tu mascota disfrute de cada paso con estilo!</p>
+        </div>
+        <div className="caja">
+          <img src="imagenes/pelotas.jpg" alt="Caja 2" className="imagen-caja" />
+          <h3>Pelotas de juego</h3>
+          <p>La diversión nunca termina con nuestras pelotas de juego. Hechas con materiales duraderos, ideales para mantener a tu perro activo, saludable y entretenido. ¡Hora de jugar!</p>
+        </div>
+        <div className="caja">
+          <img src="imagenes/snacks.jpg" alt="Caja 3" className="imagen-caja" />
+          <h3>Snacks</h3>
+          <p>Premia a tu mascota con nuestros deliciosos snacks. Hechos con ingredientes naturales que cuidan su salud mientras disfrutan de un sabor irresistible. ¡Porque tu perro también merece consentirse!</p>
+        </div>
+      </div>
+
+      {/* Formulario para agregar un nuevo producto */}
       <h3>Agregar Nuevo Producto</h3>
       <input
         type="text"
@@ -81,13 +89,9 @@ const Productos = () => {
         value={cantidad}
         onChange={(e) => setCantidad(e.target.value)}
       />
-      <input
-        type="text"
-        placeholder="./imagenes/correa.jpg"
-        value={imagen}
-        onChange={(e) => setImagen(e.target.value)}
-      />
       <button onClick={addProducto}>Agregar</button>
+
+     
     </div>
   );
 };

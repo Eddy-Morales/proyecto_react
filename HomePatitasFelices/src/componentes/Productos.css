@@ -1,0 +1,32 @@
+.cajas-info {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+  }
+  
+  .caja {
+    width: 30%;
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+  }
+  
+  .imagen-caja {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .caja h3 {
+    margin-top: 10px;
+    font-size: 1.2rem;
+  }
+  
+  .caja p {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
