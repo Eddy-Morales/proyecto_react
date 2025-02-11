@@ -1,0 +1,38 @@
+/* Encabezado.css */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f9fa;
+    border-bottom: 40px solid #ddd;
+    position: center;
+    font-size: 18px;
+    padding: 1rem 2rem;
+
+}
+
+/* Estilos para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.logo img {
+    width: 65px;
+    height: 60px;
+}
+
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;  
+    margin-right: 30px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
