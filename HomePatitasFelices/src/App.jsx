@@ -6,6 +6,7 @@ import Encabezado from './componentes/Encabezado';
 import Home from './componentes/Home';
 import PieDePagina from './componentes/PieDePagina';
 import LoginPage from './componentes/Login';
+import Servicios from './componentes/Servicios'; // Importa el componente Servicios
 import { auth } from './servicios/Credenciales';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
                 <Encabezado />
                 <Routes>
                     <Route path="/" element={<Home />} />
+                    <Route path="/servicios" element={<Servicios />} /> {/* Nueva ruta para Servicios */}
                     <Route path="/login" element={<LoginPage />} />
                 </Routes>
                 <PieDePagina />

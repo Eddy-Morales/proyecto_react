@@ -1,18 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Importa Link
 import '../componentes/Encabezado.css';
+
 const Encabezado = () => {
     return (
         <header>
             <div className="logo">
-                <img src="../imagenes/logo.jpg" alt="Logo" />
+                <img src="/imagenes/logo.jpg" alt="Logo" />
             </div>
             <nav>
-                {/*NAVEGACION*/}
-                <a href="/">Inicio</a>
-                <a href="/servicios">Servicios</a>
-                <a href="/contacto">Contacto</a>
-                <a href='/Login'>Login</a>
-                <a href='/registro'>Resgistrarse</a>
+                {/* Usa Link en lugar de <a> */}
+                <Link to="/">Inicio</Link>
+                <Link to="/servicios">Servicios</Link>
+                <Link to="/contacto">Contacto</Link>
+                <Link to="/login">Login</Link>
+                <Link to="/registro">Registrarse</Link>
             </nav>
         </header>
     );

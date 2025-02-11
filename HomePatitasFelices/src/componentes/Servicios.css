@@ -6,7 +6,7 @@
     padding: 5px;
     padding-bottom: 25px;
     width: 500px;
-    margin-left: 60%;
+    margin-left: 55%;
     margin-right: 0; 
     
 }
@@ -54,7 +54,7 @@
     color: #ff6347;
 }
 .cuerpo{
-    background-image: url('../imagenes/fila_perros.jpg');
+    background-image: url('./imagenes/fila_perros.jpg');
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat;
